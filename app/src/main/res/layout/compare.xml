@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <WebView
+        android:id="@+id/uber"
+        android:layout_width="368dp"
+        android:layout_height="248dp"
+
+        android:background="@color/navigationBarColor"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="8dp"
+
+        android:layout_marginTop="8dp"></WebView>
+
+    <WebView
+        android:id="@+id/lyft"
+        android:layout_width="368dp"
+        android:layout_height="248dp"
+        android:layout_marginTop="-19dp"
+        android:background="@color/colorPrimaryDar"
+        app:layout_constraintTop_toBottomOf="@+id/uber"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="8dp"
+
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="1.0"></WebView>
+
+</android.support.constraint.ConstraintLayout>
