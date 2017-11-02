@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#4990E2">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="230dp"
-        android:orientation="vertical"
+        android:layout_height="215dp"
+        android:orientation="horizontal"
         >
         <ImageView
             android:id="@+id/topimape"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="215dp"
             android:src="@drawable/topimage"/>
-        
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
 
         <ImageView
             android:id="@+id/usernameicon"
@@ -28,7 +31,7 @@
             android:src="@drawable/username"
             android:paddingLeft="16dp"
             />
-        <TextView
+        <EditText
             android:id="@+id/username"
             android:layout_width="320dp"
             android:layout_height="50dp"
@@ -36,36 +39,49 @@
             android:hint="User Name"
             android:textColor="@color/black"
             android:textSize="30sp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:maxLines="1"
+            android:lines="1"
+            android:scrollHorizontally="true"
+
+            />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        >
+
         <ImageView
-            android:id="@+id/passwordicon"
+            android:id="@+id/passwordIcon"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/password"
             android:paddingLeft="16dp"
             />
-
-        <TextView
+        <EditText
             android:id="@+id/password"
             android:layout_width="320dp"
             android:layout_height="50dp"
             android:background="@color/white"
+            android:hint="Password"
+            android:inputType="textPassword"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:gravity="center"
-            android:hint="Password"/>
+            android:maxLines="1"
+            android:lines="1"
+            android:scrollHorizontally="true"
 
-
+            />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="15dp"
+        >
 
         <Button
             android:id="@+id/loginbutton"
@@ -73,7 +89,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:background="#81D134"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="35dp"
             android:hint="Login"
             android:textColor="@color/black"
             android:textSize="30sp"
@@ -89,9 +105,10 @@
             android:gravity="center"
             android:background="@android:color/transparent"
             android:textAllCaps="false"
+            android:layout_marginTop="5dp"
 
             />
-        <Button
+        <TextView
             android:id="@+id/newuser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -100,6 +117,7 @@
             android:textColor="@color/white"
             android:background="@android:color/transparent"
             android:textAllCaps="false"
+            android:layout_marginTop="10dp"
             />
         <Button
             android:id="@+id/signupButton"

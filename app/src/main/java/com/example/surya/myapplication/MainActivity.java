@@ -1,82 +1,103 @@
 package com.example.surya.myapplication;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import com.firebase.client.AuthData;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
-    EditText editText, editText2;
-    Button button;
-    String user = "user";
-    String pass = "pass";
+public class MainActivity extends AppCompatActivity {
+
+    EditText username, password;
+    TextView newuser;
+    Button loginbutton, forgotpass, signupButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login);
 
-        editText = (EditText) findViewById(R.id.editText);
-        editText2 = (EditText) findViewById(R.id.editText2);
+        //final DatabaseReference databaseUser = FirebaseDatabase.getInstance().getReference("Users");
 
-        button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(this);
+        username = (EditText) findViewById(R.id.username);
+        password = (EditText) findViewById(R.id.password);
+        newuser = (TextView) findViewById(R.id.newuser);
+
+        loginbutton = (Button) findViewById(R.id.loginbutton);
+
+        loginbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                DatabaseReference root = FirebaseDatabase.getInstance().getReference();
+//                DatabaseReference users = root.child("Users");
+//                users.addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(DataSnapshot dataSnapshot) {
+//                        if(dataSnapshot.child("userId").exists()){
+//
+//                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+//                            builder.setMessage("Login Successful");
+//                            Intent login_intent = new Intent(MainActivity.this, newActivity.class);
+//                            startActivity(login_intent);
+//                            finish();
+//
+//                        }else{
+//                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+//                            builder.setMessage("Login Failed").setNegativeButton("Retry", null)
+//                                    .create().show();
+//                            finish();
+                        }
+
+                    });
+
+//                    @Override
+//                    public void onCancelled(DatabaseError databaseError) {
+//
+//                    }
+//                });
+//
+//            }
+//        });
+        forgotpass = (Button) findViewById(R.id.forgotpass);
+
+        forgotpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent forgot_intent = new Intent(MainActivity.this, Forgot.class);
+                startActivity(forgot_intent);
+            }
+        });
+        signupButton = (Button) findViewById(R.id.signupButton);
+        signupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent signup_intent = new Intent(MainActivity.this, AppRegisterActivity.class);
+                startActivity(signup_intent);
+            }
+        });
 
     }
 
-    @Override
-    public void onClick(View v) {
-        if(passwordChecker())
-
-
-            switch (v.getId()) {
-                case R.id.button:
-                    startActivity(new Intent(this, newActivity.class));
-            }
 
 
 
-        }
-        public boolean passwordChecker(){
-            if(editText.getText().toString().contains(user) && editText2.getText().toString().contains(pass) ){
-                Toast.makeText(getApplicationContext(), "Logging you in :)", Toast.LENGTH_SHORT).show();
-                return true;
-            }
 
-            else if(editText.getText().toString().isEmpty()){
 
-                Toast.makeText(getApplicationContext(), "Please enter user name!", Toast.LENGTH_LONG).show();
-                return false;
-            }
-            else if(editText2.getText().toString().isEmpty()){
 
-                Toast.makeText(getApplicationContext(), "Please enter password!", Toast.LENGTH_LONG).show();
-                return false;}
-            else if((editText.getText().toString() != user) && editText2.getText().toString().contains("pass")){
-                Toast.makeText(getApplicationContext(), "Please enter valid user name", Toast.LENGTH_SHORT).show();
-                return false;
-            }
-            else if((editText2.getText().toString() != pass) && editText.getText().toString().contains("user")){
-                Toast.makeText(getApplicationContext(), "Please enter valid password", Toast.LENGTH_SHORT).show();
-                return false;
-            }
-            else if((editText.getText().toString() != user) && editText2.getText().toString() != pass) {
-                Toast.makeText(getApplicationContext(), "Please enter valid user name and pass !", Toast.LENGTH_SHORT).show();
-
-                return false;
-            }
-            else{
-                return false;
-            }
-
-        }
-    }
+}

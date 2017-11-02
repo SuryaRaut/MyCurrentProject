@@ -11,9 +11,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".DataPackger">
+
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreen"
 
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
@@ -26,7 +28,11 @@
     <activity
         android:name=".newActivity"/>
     <activity android:name=".videoPlayer"/>
-
+    <activity
+        android:name=".MainActivity"/>
+    <activity
+        android:name=".newMainActivity"/>
+    <activity android:name=".AppRegisterActivity"/>
     <activity android:name=".compare" />
 </application>
 </manifest>

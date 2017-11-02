@@ -1,0 +1,58 @@
+{
+  "project_info": {
+    "project_number": "913591294316",
+    "firebase_url": "https://myapp-75497.firebaseio.com",
+    "project_id": "myapp-75497",
+    "storage_bucket": "myapp-75497.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913591294316:android:01444c9921c21a94",
+        "android_client_info": {
+          "package_name": "com.example.surya.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "913591294316-med9pllrljnikvuhaehvkp69pgfhkbur.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.surya.myapplication",
+            "certificate_hash": "1acd10fbc03ea6b812ddba70764fabf49a9eb786"
+          }
+        },
+        {
+          "client_id": "913591294316-0kbvo2oocgbateu56epbgicjf8p4v1kv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDH2I1QTPxHVuUVfuH6kOUqLG2fm7H_9_Y"
+        },
+        {
+          "current_key": "AIzaSyDBFsQGWVGKM6IU5HR5iR48l8txUuEC7NU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "913591294316-0kbvo2oocgbateu56epbgicjf8p4v1kv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
