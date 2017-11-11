@@ -25,7 +25,7 @@
         android:background="#4990E2">
 
         <EditText
-            android:id="@+id/lastname"
+            android:id="@+id/etlastname"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:background="@color/white"
@@ -35,7 +35,7 @@
             android:layout_gravity="center"
             android:gravity="center"/>
         <EditText
-            android:id="@+id/firstname"
+            android:id="@+id/etfirstname"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:background="@color/white"
@@ -46,7 +46,7 @@
             android:gravity="center"
             android:layout_marginTop="5dp"/>
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/etemail"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:background="@color/white"
@@ -57,7 +57,7 @@
             android:gravity="center"
             android:layout_marginTop="5dp"/>
         <EditText
-            android:id="@+id/pass"
+            android:id="@+id/etpass"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:background="@color/white"
@@ -69,7 +69,7 @@
             android:gravity="center"
             android:layout_marginTop="5dp"/>
         <EditText
-            android:id="@+id/pass2"
+            android:id="@+id/etpass2"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:background="@color/white"

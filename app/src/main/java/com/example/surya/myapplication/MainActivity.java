@@ -11,19 +11,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.client.AuthData;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText username, password;
+    EditText username, pass;
     TextView newuser;
     Button loginbutton, forgotpass, signupButton;
 
@@ -33,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        //final DatabaseReference databaseUser = FirebaseDatabase.getInstance().getReference("Users");
+
 
         username = (EditText) findViewById(R.id.username);
-        password = (EditText) findViewById(R.id.password);
+        pass = (EditText) findViewById(R.id.pass);
         newuser = (TextView) findViewById(R.id.newuser);
 
         loginbutton = (Button) findViewById(R.id.loginbutton);
@@ -44,36 +42,49 @@ public class MainActivity extends AppCompatActivity {
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                DatabaseReference root = FirebaseDatabase.getInstance().getReference();
-//                DatabaseReference users = root.child("Users");
-//                users.addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(DataSnapshot dataSnapshot) {
-//                        if(dataSnapshot.child("userId").exists()){
-//
-//                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-//                            builder.setMessage("Login Successful");
-//                            Intent login_intent = new Intent(MainActivity.this, newActivity.class);
-//                            startActivity(login_intent);
-//                            finish();
-//
-//                        }else{
-//                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-//                            builder.setMessage("Login Failed").setNegativeButton("Retry", null)
-//                                    .create().show();
-//                            finish();
+
+                final String email = username.getText().toString();
+                final String  password = pass.getText().toString();
+
+                //Responce received from the server
+                Response.Listener<String> responseListener = new Response.Listener<String>(){
+
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+
+                            if(success){
+                                String first_name = jsonResponse.getString("first_name");
+
+                                Intent intent = new Intent(MainActivity.this, UserArea.class);
+                                intent.putExtra("email", email);
+                                intent.putExtra("first_name", first_name);
+
+                                startActivity(intent);
+                            }else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                builder.setMessage("Login Failed")
+                                        .setNegativeButton("Retry", null)
+                                        .create()
+                                        .show();
+
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
 
+                    }
+                };
+                LoginRequest loginRequest = new LoginRequest(email, password, responseListener );
+                RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
+                queue.add(loginRequest);
+
+            }
                     });
 
-//                    @Override
-//                    public void onCancelled(DatabaseError databaseError) {
-//
-//                    }
-//                });
-//
-//            }
-//        });
+
         forgotpass = (Button) findViewById(R.id.forgotpass);
 
         forgotpass.setOnClickListener(new View.OnClickListener() {

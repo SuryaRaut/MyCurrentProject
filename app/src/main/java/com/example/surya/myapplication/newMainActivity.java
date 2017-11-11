@@ -28,7 +28,7 @@ public class newMainActivity extends AppRegisterActivity{
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //passwordChecker();
+
                 Intent login_intent = new Intent(newMainActivity.this, newActivity.class);
                 startActivity(login_intent);
             }
@@ -36,11 +36,5 @@ public class newMainActivity extends AppRegisterActivity{
 
 
     }
-//    public void passwordChecker(){
-//        if(editText.equals(user) && editText2.equals(pass)){
-//            Toast.makeText(this, "Succcessfully Login! ", Toast.LENGTH_LONG).show();
-//        }else {
-//            System.exit(0);
-//        }
-//    }
+
 }

@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".DataPackger">
+        >
 
         <activity
             android:name=".SplashScreen"
@@ -30,6 +30,8 @@
     <activity android:name=".videoPlayer"/>
     <activity
         android:name=".MainActivity"/>
+    <activity android:name=".UserArea"/>
+
     <activity
         android:name=".newMainActivity"/>
     <activity android:name=".AppRegisterActivity"/>

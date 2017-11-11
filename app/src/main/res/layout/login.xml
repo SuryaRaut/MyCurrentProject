@@ -61,7 +61,7 @@
             android:paddingLeft="16dp"
             />
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/pass"
             android:layout_width="320dp"
             android:layout_height="50dp"
             android:background="@color/white"
