@@ -36,5 +36,6 @@
         android:name=".newMainActivity"/>
     <activity android:name=".AppRegisterActivity"/>
     <activity android:name=".compare" />
+    <activity android:name=".SheduleActivity"/>
 </application>
 </manifest>

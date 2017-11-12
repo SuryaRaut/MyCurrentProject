@@ -32,6 +32,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     compile 'com.google.android.gms:play-services:11.2.2'
+    compile 'com.prolificinteractive:material-calendarview:1.4.3'
     compile 'com.android.volley:volley:1.0.0'
 
 }
